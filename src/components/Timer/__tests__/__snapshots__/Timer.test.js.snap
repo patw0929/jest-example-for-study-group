@@ -2,4 +2,4 @@
 
 exports[`<Timer /> simulate click behavior should call load function 1`] = `"Sun Aug 06 2017 01:32:53 GMT+0800 (CST)"`;
 
-exports[`<Timer /> when it has no any data should be same as snapshot 1`] = `"<div><span><!-- react-text: 3 -->資料最後更新時間：<!-- /react-text --><!-- react-text: 4 -->Sun Aug 06 2017 00:41:54 GMT+0800 (CST)<!-- /react-text --></span><a>更新</a></div>"`;
+exports[`<Timer /> when it has no any data should be same as snapshot 1`] = `"<div><span><!-- react-text: 3 -->資料最後更新時間：<!-- /react-text --><!-- react-text: 4 -->Sun Aug 06 2017 00:41:54 GMT+0800 (CST)<!-- /react-text --></span><a class=\\"refresh\\">更新</a></div>"`;

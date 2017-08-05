@@ -6,6 +6,7 @@ jest.mock('lodash.debounce', () => {
 import React from 'react';
 import { mount } from 'enzyme';
 import MockDate from 'mockdate';
+import styles from '../Timer.scss';
 
 describe('<Timer />', function () {
   let Timer;
@@ -50,7 +51,7 @@ describe('<Timer />', function () {
 
     it('should call load function', () => {
       MockDate.set(1501954373526);
-      this.subject.find('a').simulate('click');
+      this.subject.find(`.${styles.refresh}`).simulate('click');
 
       jest.runAllTimers();
 
