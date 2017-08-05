@@ -1,5 +1,8 @@
 # 使用 Jest 進行 Front-End Unit Test
 
+[![Build Status](https://travis-ci.org/patw0929/jest-example-for-study-group.svg)](https://travis-ci.org/patw0929/jest-example-for-study-group)
+[![Coverage Status](https://coveralls.io/repos/github/patw0929/jest-example-for-study-group/badge.svg?branch=master)](https://coveralls.io/github/patw0929/jest-example-for-study-group?branch=master)
+
 範例專案
 
 * [2016簡報](https://speakerdeck.com/patw0929/shi-yong-jest-jin-xing-front-end-unit-test)
