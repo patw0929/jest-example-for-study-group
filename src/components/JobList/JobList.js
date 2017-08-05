@@ -1,27 +1,29 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Job from './Job';
+import Job from './JobContainer';
+import styles from './JobList.scss';
 
 export default class JobList extends Component {
   static propTypes = {
-    jobs: PropTypes.arrayOf(PropTypes.shape({
-      id: PropTypes.number,
-      title: PropTypes.string,
-      company: PropTypes.string,
-    })),
+    jobIds: PropTypes.arrayOf(PropTypes.number),
+    loadIfNeeded: PropTypes.func.isRequired,
   };
 
-  render() {
-    const { jobs } = this.props;
+  componentWillMount() {
+    this.props.loadIfNeeded();
+  }
 
-    if (jobs.length === 0) {
+  render() {
+    const { jobIds } = this.props;
+
+    if (jobIds.length === 0) {
       return <div>No data</div>;
     }
 
     return (
-      <div>
-        {jobs.map(job => {
-          return <Job key={job.id} title={job.title} company={job.company} />;
+      <div className={styles.wrapper}>
+        {jobIds.map(jobId => {
+          return <Job key={jobId} id={jobId} />;
         })}
       </div>
     );

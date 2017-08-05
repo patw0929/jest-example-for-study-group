@@ -1,5 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`<JobList /> when it has no any data should be same as snapshot 1`] = `"<div>No data</div>"`;
-
-exports[`<JobList /> when it has some jobs data should be same as snapshot 1`] = `"<div><div><h1>Frontend Developer</h1><h2>Faceb00k</h2></div><div><h1>Backend Developer</h1><h2>Goog1e</h2></div><div><h1>UI Designer</h1><h2>4irBnB</h2></div></div>"`;

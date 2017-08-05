@@ -2,7 +2,8 @@ import deepEqual from 'deep-equal';
 
 const EMPTY_ARRAY = [];
 
-const YOURATOR_F2E_LIST_API = 'https://www.yourator.co/api/v2/jobs?category[]=7';
+// const YOURATOR_F2E_LIST_API = 'https://www.yourator.co/api/v2/jobs?category[]=7';
+const YOURATOR_F2E_LIST_API = 'https://galvanize-cors-proxy.herokuapp.com/https://www.yourator.co/api/v2/jobs?category[]=7'; // proxy
 
 const LOAD = 'youratorJobs/LOAD';
 const LOAD_SUCCESS = 'youratorJobs/LOAD_SUCCESS';
@@ -38,7 +39,7 @@ function processByIdOne(state = initialByIdOne, actionType, actionResult) {
 
 function processByIdReduce(state, action, data, result) {
   return (data || EMPTY_ARRAY).reduce((collection, item) => {
-    const id = item.columnistsId;
+    const id = item.id;
     collection[id] = processByIdOne(state[id], action.type, item); // eslint-disable-line no-param-reassign
     return collection;
   }, result);
@@ -47,7 +48,7 @@ function processByIdReduce(state, action, data, result) {
 function processById(state = initialById, action = {}) {
   switch (action.type) {
     case LOAD_SUCCESS: {
-      const items = action.result.items;
+      const items = action.result.jobs;
       let newState = {};
 
       newState = processByIdReduce(state, action, items, newState);
@@ -81,7 +82,7 @@ function processByList(state = initialState, action = {}) {
       };
     }
     case LOAD_SUCCESS: {
-      const data = action.result.items;
+      const data = action.result.jobs;
       const dataIds = (data && data.map && data.map(d => d.id)) || EMPTY_ARRAY;
 
       return {
@@ -104,7 +105,7 @@ export default function reducer(state = {}, action) {
 }
 
 function shouldFetch(state) {
-  const items = state.columnist && state.columnist.items;
+  const items = state.youratorJobs && state.youratorJobs.items;
 
   if (!items) {
     return true;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import styles from '../Job.scss';
 
 describe('<Job />', function () {
   let Job;
@@ -11,16 +12,27 @@ describe('<Job />', function () {
     this.params = {};
 
     this.makeSubject = () => {
-      const { title, company } = this.params;
+      const { job } = this.params;
 
-      return shallow(<Job title={title} company={company} />);
+      return shallow(<Job job={job} />);
     };
   });
 
   describe('when it has complete data', () => {
     beforeEach(() => {
-      this.params.title = 'Frontend Developer';
-      this.params.company = 'Partner Studio';
+      this.params.job = {
+        name: 'Frontend Developer',
+        company: {
+          brand: 'Partner Studio',
+        },
+        skill_tags: [{
+          id: 1,
+          name: 'JavaScript',
+        }, {
+          id: 2,
+          name: 'CSS',
+        }],
+      };
 
       this.subject = this.makeSubject();
     });
@@ -34,9 +46,15 @@ describe('<Job />', function () {
     });
   });
 
-  describe('when it lack of company data', () => {
+  describe('when it lack of tag data', () => {
     beforeEach(() => {
-      this.params.title = 'Frontend Developer';
+      this.params.job = {
+        name: 'Frontend Developer',
+        company: {
+          brand: 'Partner Studio',
+        },
+        skill_tags: [],
+      };
 
       this.subject = this.makeSubject();
     });
@@ -45,8 +63,8 @@ describe('<Job />', function () {
       expect(this.subject.html()).toMatchSnapshot();
     });
 
-    it('should display `(unknown)`', () => {
-      expect(this.subject.find('h2').text()).toEqual('(unknown)');
+    it('should not display any skill tag', () => {
+      expect(this.subject.find(`.${styles['skill-tag']}`).length).toEqual(0);
     });
   });
 });
