@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import debounce from 'lodash.debounce';
 import styles from './Timer.scss';
 
 export default class Timer extends Component {
@@ -15,12 +16,15 @@ export default class Timer extends Component {
     };
   }
 
-  refresh = () => {
+  refresh = debounce(() => {
     this.setState({
       now: new Date().toString(),
     });
-    this.props.load();
-  };
+
+    setTimeout(() => {
+      this.props.load();
+    }, 500);
+  }, 500);
 
   render() {
     return (
