@@ -5,7 +5,7 @@ export default function clientMiddleware(client) {
         return action(dispatch, getState);
       }
 
-      const { promise, types, ...rest } = action; // eslint-disable-line no-redeclare
+      const { promise, types, ...rest } = action;
 
       if (!promise) {
         return next(action);
@@ -13,17 +13,27 @@ export default function clientMiddleware(client) {
 
       const [REQUEST, SUCCESS, FAILURE] = types;
 
-      next({...rest, type: REQUEST});
+      if (REQUEST) {
+        next({ ...rest, type: REQUEST });
+      }
 
       const actionPromise = promise(client);
 
-      actionPromise.then(
-        (result) => next({...rest, result, type: SUCCESS}),
-        (error) => next({...rest, error, type: FAILURE})
-      ).catch((error)=> {
-        console.error('MIDDLEWARE ERROR:', error);
-        next({...rest, error, type: FAILURE});
-      });
+      actionPromise
+        .then(
+          result => {
+            if (Array.isArray(result)) {
+              return next({ ...rest, result: result.map(r => r.data), type: SUCCESS });
+            }
+
+            return next({ ...rest, result: result && result.data, type: SUCCESS });
+          },
+          error => next({ ...rest, error: (error && error.response && error.response.data) || error, type: FAILURE })
+        )
+        .catch(error => {
+          console.error('MIDDLEWARE ERROR:', error);
+          next({ ...rest, error, type: FAILURE });
+        });
 
       return actionPromise;
     };
