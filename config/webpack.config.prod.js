@@ -88,7 +88,7 @@ module.exports = {
     // for React Native Web.
     extensions: ['.web.js', '.js', '.json', '.web.jsx', '.jsx'],
     alias: {
-      
+
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web',
@@ -118,7 +118,7 @@ module.exports = {
           {
             options: {
               formatter: eslintFormatter,
-              
+
             },
             loader: require.resolve('eslint-loader'),
           },
@@ -138,6 +138,7 @@ module.exports = {
           /\.html$/,
           /\.(js|jsx)$/,
           /\.css$/,
+          /\.scss$/,
           /\.json$/,
           /\.bmp$/,
           /\.gif$/,
@@ -165,7 +166,7 @@ module.exports = {
         include: paths.appSrc,
         loader: require.resolve('babel-loader'),
         options: {
-          
+
           compact: true,
         },
       },
@@ -182,7 +183,7 @@ module.exports = {
       // use the "style" loader inside the async code so CSS from them won't be
       // in the main CSS file.
       {
-        test: /\.css$/,
+        test: /\.scss$/,
         loader: ExtractTextPlugin.extract(
           Object.assign(
             {
@@ -191,19 +192,20 @@ module.exports = {
                 {
                   loader: require.resolve('css-loader'),
                   options: {
-                    importLoaders: 1,
+                    importLoaders: 3,
                     minimize: true,
                     sourceMap: true,
+                    modules: true,
+                    localIdentName: '[path][name]__[local]--[hash:base64:5]',
                   },
                 },
                 {
                   loader: require.resolve('postcss-loader'),
                   options: {
-                    // Necessary for external CSS imports to work
-                    // https://github.com/facebookincubator/create-react-app/issues/2677
-                    ident: 'postcss',
+                    ident: 'postcss', // https://webpack.js.org/guides/migrating/#complex-options
+                    sourceMap: true,
                     plugins: () => [
-                      require('postcss-flexbugs-fixes'),
+                      // require('postcss-flexbugs-fixes'),
                       autoprefixer({
                         browsers: [
                           '>1%',
@@ -214,6 +216,19 @@ module.exports = {
                         flexbox: 'no-2009',
                       }),
                     ],
+                  },
+                },
+                {
+                  loader: require.resolve('resolve-url-loader'),
+                  options: {
+                    root: './src',
+                  },
+                },
+                {
+                  loader: require.resolve('sass-loader'),
+                  options: {
+                    outputStyle: 'expanded',
+                    sourceMap: true,
                   },
                 },
               ],
