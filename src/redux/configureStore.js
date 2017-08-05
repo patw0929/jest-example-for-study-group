@@ -16,8 +16,6 @@ export default function configureStore(initialState) {
   if (__DEV__) {
     require('../Reactotron');
 
-    // const Reactotron = require('reactotron-react-js');
-
     store = Reactotron.createStore(reducer, initialState, enhancer);
   }
 
