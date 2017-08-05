@@ -6,6 +6,7 @@ import JobList from './JobList';
 const mapStateToProps = state => {
   return {
     jobIds: idx(state, _ => _.youratorJobs.list.items) || [],
+    isFetching: idx(state, _ => _.youratorJobs.list.isFetching),
   };
 };
 

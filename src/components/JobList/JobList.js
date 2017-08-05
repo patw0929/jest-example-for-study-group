@@ -7,6 +7,7 @@ export default class JobList extends Component {
   static propTypes = {
     jobIds: PropTypes.arrayOf(PropTypes.number),
     loadIfNeeded: PropTypes.func.isRequired,
+    isFetching: PropTypes.bool,
   };
 
   componentWillMount() {
@@ -14,10 +15,14 @@ export default class JobList extends Component {
   }
 
   render() {
-    const { jobIds } = this.props;
+    const { jobIds, isFetching } = this.props;
+
+    if (isFetching) {
+      return <div className={styles.fetching}>Loading...</div>;
+    }
 
     if (jobIds.length === 0) {
-      return <div>No data</div>;
+      return <div className={styles.empty}>No data</div>;
     }
 
     return (

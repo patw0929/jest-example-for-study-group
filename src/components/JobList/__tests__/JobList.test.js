@@ -15,15 +15,17 @@ describe('<JobList />', function () {
 
     this.params = {
       loadIfNeeded: jest.fn(),
+      isFetching: undefined,
     };
 
     this.makeSubject = () => {
-      const { jobIds, loadIfNeeded } = this.params;
+      const { jobIds, loadIfNeeded, isFetching } = this.params;
 
       return mount(
         <JobList
           jobIds={jobIds}
           loadIfNeeded={loadIfNeeded}
+          isFetching={isFetching}
         />
       );
     };
