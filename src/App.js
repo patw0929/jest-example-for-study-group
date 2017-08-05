@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import styles from './App.scss';
+import Timer from './components/Timer/TimerContainer';
 import JobList from './components/JobList/JobListContainer';
 
 class App extends Component {
@@ -10,6 +11,7 @@ class App extends Component {
         <div className={styles['App-header']}>
           <img src={logo} className={styles['App-logo']} alt="logo" />
           <h2>前端找工作</h2>
+          <Timer />
         </div>
         <JobList />
       </div>
