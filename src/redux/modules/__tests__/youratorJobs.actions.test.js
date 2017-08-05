@@ -42,16 +42,9 @@ describe('youratorJobs action', () => {
   });
 
   describe('action: load', () => {
-    let expectedStoreState;
     let expectedActions;
 
     beforeEach(() => {
-      expectedStoreState = {
-        isFetching: false,
-        didInvalidate: false,
-        items: mockYouratorJobs.jobs.map(item => item.id),
-      };
-
       expectedActions = [
         {
           type: LOAD,
