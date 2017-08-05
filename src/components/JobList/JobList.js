@@ -12,9 +12,15 @@ export default class JobList extends Component {
   };
 
   render() {
+    const { jobs } = this.props;
+
+    if (jobs.length === 0) {
+      return <div>No data</div>;
+    }
+
     return (
       <div>
-        {this.props.jobs.map(job => {
+        {jobs.map(job => {
           return <Job key={job.id} title={job.title} company={job.company} />;
         })}
       </div>
