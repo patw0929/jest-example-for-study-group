@@ -1,5 +1,7 @@
 import deepEqual from 'deep-equal';
-import { YOURATOR_F2E_LIST_API } from '../../constants/url';
+import URLS from '../../constants/url';
+
+const { YOURATOR_F2E_LIST_API } = URLS;
 
 const EMPTY_ARRAY = [];
 
