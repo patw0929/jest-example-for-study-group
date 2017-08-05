@@ -7,8 +7,6 @@ const Job = ({ job }) => {
     return null;
   }
 
-  console.log(job);
-
   return (
     <div className={styles.job}>
       <h1>{job.name}</h1>
