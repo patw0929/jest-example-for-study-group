@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 
 describe('<Job />', function () {
   let Job;
@@ -13,7 +13,7 @@ describe('<Job />', function () {
     this.makeSubject = () => {
       const { title, company } = this.params;
 
-      return mount(<Job title={title} company={company} />);
+      return shallow(<Job title={title} company={company} />);
     };
   });
 
