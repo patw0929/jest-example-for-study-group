@@ -1,13 +1,11 @@
 import deepEqual from 'deep-equal';
+import { YOURATOR_F2E_LIST_API } from '../../constants/url';
 
 const EMPTY_ARRAY = [];
 
-// const YOURATOR_F2E_LIST_API = 'https://www.yourator.co/api/v2/jobs?category[]=7';
-const YOURATOR_F2E_LIST_API = 'https://galvanize-cors-proxy.herokuapp.com/https://www.yourator.co/api/v2/jobs?category[]=7'; // proxy
-
-const LOAD = 'youratorJobs/LOAD';
-const LOAD_SUCCESS = 'youratorJobs/LOAD_SUCCESS';
-const LOAD_FAIL = 'youratorJobs/LOAD_FAIL';
+export const LOAD = 'youratorJobs/LOAD';
+export const LOAD_SUCCESS = 'youratorJobs/LOAD_SUCCESS';
+export const LOAD_FAIL = 'youratorJobs/LOAD_FAIL';
 
 const initialState = {
   isFetching: false,
