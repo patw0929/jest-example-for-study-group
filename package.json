@@ -66,7 +66,8 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "TZ=Asia/Taipei node scripts/test.js --env=jsdom",
-    "coverage": "yarn run test -- --coverage"
+    "coverage": "yarn run test -- --coverage",
+    "coveralls": "NODE_ENV=development cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   },
   "jest": {
     "collectCoverageFrom": [
