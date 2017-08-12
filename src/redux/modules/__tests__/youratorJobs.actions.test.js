@@ -42,7 +42,7 @@ describe('youratorJobs action', () => {
     });
   });
 
-  describe('action: load', () => {
+  describe('action: loadIfNeeded - load & success', () => {
     let expectedActions;
 
     beforeEach(() => {
@@ -67,7 +67,7 @@ describe('youratorJobs action', () => {
     });
 
     it('should be thenable function', async () => {
-      const result = store.dispatch(youratorJobs.load());
+      const result = store.dispatch(youratorJobs.loadIfNeeded());
 
       await result;
 
@@ -76,21 +76,21 @@ describe('youratorJobs action', () => {
     });
 
     it('should show load & success actions', async () => {
-      await store.dispatch(youratorJobs.load());
+      await store.dispatch(youratorJobs.loadIfNeeded());
 
       expect(store.getActions()).toEqual(expectedActions);
       expect(scope.isDone()).toBeTruthy();
     });
 
     it('should get expected data', async () => {
-      const result = await store.dispatch(youratorJobs.load());
+      const result = await store.dispatch(youratorJobs.loadIfNeeded());
 
       expect(result.data).toEqual(expectedActions[1].result);
       expect(scope.isDone()).toBeTruthy();
     });
   });
 
-  describe('action: load - load & fail', () => {
+  describe('action: loadIfNeeded - load & fail', () => {
     let expectedActions;
     const errorMessage = 'Internal Server Error';
 
@@ -117,7 +117,7 @@ describe('youratorJobs action', () => {
 
     it('should show load & fail actions', async () => {
       try {
-        await store.dispatch(youratorJobs.load());
+        await store.dispatch(youratorJobs.loadIfNeeded());
       } catch (e) {
         expect(store.getActions()).toEqual(expectedActions);
         expect(scope.isDone()).toBeTruthy();
@@ -126,7 +126,7 @@ describe('youratorJobs action', () => {
 
     it('should get exception', async () => {
       try {
-        await store.dispatch(youratorJobs.load());
+        await store.dispatch(youratorJobs.loadIfNeeded());
       } catch (object) {
         expect(object.response.data.data).toEqual(errorMessage);
         expect(scope.isDone()).toBeTruthy();
