@@ -69,6 +69,27 @@ describe('youratorJobsReducer', () => {
     });
   });
 
+  describe('unknown type', () => {
+    it('should show same state', () => {
+      const state = {};
+
+      const result = youratorJobsReducer(state, {
+        type: 'UNKNOWN',
+        error: '12345',
+        result: '45678',
+      });
+
+      expect(result).toEqual({
+        ...state,
+        byId: {},
+        list: {
+          isFetching: false,
+          didInvalidate: true,
+        },
+      });
+    });
+  });
+
   describe('type: LOAD to LOAD_SUCCESS', () => {
     it('should match snapshot', () => {
       const actions = [
