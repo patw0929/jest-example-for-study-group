@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> render App should be same as snapshot 1`] = `
+<div
+  className="App"
+>
+  <div
+    className="App-header"
+  >
+    <img
+      alt="logo"
+      className="App-logo"
+      src="logo.svg"
+    />
+    <h2>
+      前端找工作
+    </h2>
+    <Connect(Timer) />
+  </div>
+  <Connect(JobList) />
+</div>
+`;
