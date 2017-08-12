@@ -31,4 +31,9 @@ describe('container <Timer />', () => {
   it('should be same as snapshot', () => {
     expect(TimerComponent.html()).toMatchSnapshot();
   });
+
+  it('should execute the dispatch function after calling the load function', () => {
+    TimerComponent.props().load();
+    expect(subject.instance().store.dispatch).toBeCalled();
+  });
 });
