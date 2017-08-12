@@ -1,6 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
+import toJson from 'enzyme-to-json';
 import MockDate from 'mockdate';
 import storeFake from '../../../utils/testUtils';
 
@@ -29,7 +30,7 @@ describe('container <Timer />', () => {
   });
 
   it('should be same as snapshot', () => {
-    expect(TimerComponent.html()).toMatchSnapshot();
+    expect(toJson(TimerComponent)).toMatchSnapshot();
   });
 
   it('should execute the dispatch function after calling the load function', () => {
