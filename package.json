@@ -76,7 +76,8 @@
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}",
       "!**/__mocks__/**",
-      "!**/__tests__/**"
+      "!**/__tests__/**",
+      "!src/Reactotron.js"
     ],
     "setupFiles": [
       "<rootDir>/config/polyfills.js"
