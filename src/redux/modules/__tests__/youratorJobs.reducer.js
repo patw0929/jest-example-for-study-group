@@ -68,4 +68,19 @@ describe('youratorJobsReducer', () => {
       expect(result).toMatchSnapshot();
     });
   });
+
+  describe('type: LOAD to LOAD_SUCCESS', () => {
+    it('should match snapshot', () => {
+      const actions = [
+        { type: LOAD },
+        { type: LOAD_SUCCESS, result: { jobs: mockYouratorJobs.jobs } },
+      ];
+
+      let result;
+      for (const action of actions) {
+        result = youratorJobsReducer(result, action);
+        expect(result).toMatchSnapshot();
+      }
+    });
+  });
 });
