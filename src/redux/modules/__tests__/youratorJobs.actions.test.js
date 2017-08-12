@@ -4,12 +4,13 @@ jest.mock('../../../constants/url');
 import configureMockStore from 'redux-mock-store';
 import nock from 'nock';
 import mockYouratorJobs from './mocks/mockYouratorJobs.json';
-import { YOURATOR_F2E_LIST_API } from '../../../constants/url';
+import URLS from '../../../constants/url';
 import {
   LOAD,
   LOAD_SUCCESS,
   LOAD_FAIL,
 } from '../youratorJobs';
+const { YOURATOR_F2E_LIST_API } = URLS;
 
 describe('youratorJobs action', () => {
   let youratorJobs;
