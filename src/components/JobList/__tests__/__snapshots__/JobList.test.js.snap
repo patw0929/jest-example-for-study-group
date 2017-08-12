@@ -39,3 +39,17 @@ exports[`<JobList /> when it has some jobs data should be same as snapshot 1`] =
   </div>
 </JobList>
 `;
+
+exports[`<JobList /> when it is still fetching should be same as snapshot 1`] = `
+<JobList
+  isFetching={true}
+  jobIds={Array []}
+  loadIfNeeded={[Function]}
+>
+  <div
+    className="fetching"
+  >
+    Loading...
+  </div>
+</JobList>
+`;

@@ -27,6 +27,8 @@ exports[`<Job /> when it has complete data should be same as snapshot 1`] = `
 </div>
 `;
 
+exports[`<Job /> when it has no data should be same as snapshot 1`] = `null`;
+
 exports[`<Job /> when it lack of tag data should be same as snapshot 1`] = `
 <div
   className="job"

@@ -68,4 +68,17 @@ describe('<Job />', function () {
       expect(this.subject.find(`.${styles['skill-tag']}`).length).toEqual(0);
     });
   });
+
+  describe('when it has no data', () => {
+    beforeEach(() => {
+      this.params.job = undefined;
+
+      this.subject = this.makeSubject();
+    });
+
+    it('should be same as snapshot', () => {
+      expect(toJson(this.subject)).toMatchSnapshot();
+      expect(this.subject.html()).toBeNull();
+    });
+  });
 });

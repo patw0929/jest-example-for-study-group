@@ -59,4 +59,17 @@ describe('<JobList />', function () {
       expect(this.subject.find('Job').length).toEqual(3);
     });
   });
+
+  describe('when it is still fetching', () => {
+    beforeEach(() => {
+      this.params.jobIds = [];
+      this.params.isFetching = true;
+
+      this.subject = this.makeSubject();
+    });
+
+    it('should be same as snapshot', () => {
+      expect(toJson(this.subject)).toMatchSnapshot();
+    });
+  });
 });
