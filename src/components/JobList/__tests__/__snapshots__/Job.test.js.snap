@@ -1,5 +1,44 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Job /> when it has complete data should be same as snapshot 1`] = `"<div class=\\"job\\"><h1>Frontend Developer</h1><h2>Partner Studio</h2><div class=\\"skill-tags\\"><span class=\\"skill-tag\\">JavaScript</span><span class=\\"skill-tag\\">CSS</span></div></div>"`;
+exports[`<Job /> when it has complete data should be same as snapshot 1`] = `
+<div
+  className="job"
+>
+  <h1>
+    Frontend Developer
+  </h1>
+  <h2>
+    Partner Studio
+  </h2>
+  <div
+    className="skill-tags"
+  >
+    <span
+      className="skill-tag"
+    >
+      JavaScript
+    </span>
+    <span
+      className="skill-tag"
+    >
+      CSS
+    </span>
+  </div>
+</div>
+`;
 
-exports[`<Job /> when it lack of tag data should be same as snapshot 1`] = `"<div class=\\"job\\"><h1>Frontend Developer</h1><h2>Partner Studio</h2><div class=\\"skill-tags\\"></div></div>"`;
+exports[`<Job /> when it lack of tag data should be same as snapshot 1`] = `
+<div
+  className="job"
+>
+  <h1>
+    Frontend Developer
+  </h1>
+  <h2>
+    Partner Studio
+  </h2>
+  <div
+    className="skill-tags"
+  />
+</div>
+`;

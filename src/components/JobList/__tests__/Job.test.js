@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import toJson from 'enzyme-to-json';
 import styles from '../Job.scss';
 
 describe('<Job />', function () {
@@ -38,7 +39,7 @@ describe('<Job />', function () {
     });
 
     it('should be same as snapshot', () => {
-      expect(this.subject.html()).toMatchSnapshot();
+      expect(toJson(this.subject)).toMatchSnapshot();
     });
 
     it('should display `Partner Studio`', () => {
@@ -60,7 +61,7 @@ describe('<Job />', function () {
     });
 
     it('should be same as snapshot', () => {
-      expect(this.subject.html()).toMatchSnapshot();
+      expect(toJson(this.subject)).toMatchSnapshot();
     });
 
     it('should not display any skill tag', () => {

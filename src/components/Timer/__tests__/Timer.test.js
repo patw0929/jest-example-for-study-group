@@ -5,6 +5,7 @@ jest.mock('lodash.debounce', () => {
 
 import React from 'react';
 import { mount } from 'enzyme';
+import toJson from 'enzyme-to-json';
 import MockDate from 'mockdate';
 import styles from '../Timer.scss';
 
@@ -39,7 +40,7 @@ describe('<Timer />', function () {
     });
 
     it('should be same as snapshot', () => {
-      expect(this.subject.html()).toMatchSnapshot();
+      expect(toJson(this.subject)).toMatchSnapshot();
     });
   });
 

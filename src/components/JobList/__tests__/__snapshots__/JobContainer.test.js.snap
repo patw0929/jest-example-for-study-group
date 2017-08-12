@@ -1,3 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`container <Job /> should be same as snapshot 1`] = `"<div class=\\"job\\"><h1>Frontend Developer</h1><h2>Faceb00k</h2><div class=\\"skill-tags\\"></div></div>"`;
+exports[`container <Job /> should be same as snapshot 1`] = `
+<Job
+  dispatch={[Function]}
+  id="1"
+  job={
+    Object {
+      "company": Object {
+        "brand": "Faceb00k",
+      },
+      "id": 1,
+      "name": "Frontend Developer",
+      "skill_tags": Array [],
+    }
+  }
+>
+  <div
+    className="job"
+  >
+    <h1>
+      Frontend Developer
+    </h1>
+    <h2>
+      Faceb00k
+    </h2>
+    <div
+      className="skill-tags"
+    />
+  </div>
+</Job>
+`;

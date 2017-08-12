@@ -5,6 +5,7 @@ jest.mock('../JobContainer', () => {
 
 import React from 'react';
 import { mount } from 'enzyme';
+import toJson from 'enzyme-to-json';
 
 describe('<JobList />', function () {
   let JobList;
@@ -39,7 +40,7 @@ describe('<JobList />', function () {
     });
 
     it('should be same as snapshot', () => {
-      expect(this.subject.html()).toMatchSnapshot();
+      expect(toJson(this.subject)).toMatchSnapshot();
     });
   });
 
@@ -51,7 +52,7 @@ describe('<JobList />', function () {
     });
 
     it('should be same as snapshot', () => {
-      expect(this.subject.html()).toMatchSnapshot();
+      expect(toJson(this.subject)).toMatchSnapshot();
     });
 
     it('should has 3 items', () => {

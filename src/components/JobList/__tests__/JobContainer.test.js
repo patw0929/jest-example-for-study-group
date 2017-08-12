@@ -1,6 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
+import toJson from 'enzyme-to-json';
 
 import storeFake from '../../../utils/testUtils';
 import Job from '../Job';
@@ -61,6 +62,6 @@ describe('container <Job />', () => {
   });
 
   it('should be same as snapshot', () => {
-    expect(JobComponent.html()).toMatchSnapshot();
+    expect(toJson(JobComponent)).toMatchSnapshot();
   });
 });
