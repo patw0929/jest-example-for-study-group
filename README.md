@@ -5,6 +5,7 @@
 
 範例專案
 
+* [線上 React 讀書會版簡報](https://speakerdeck.com/patw0929/shi-yong-jest-jin-xing-front-end-unit-test-xian-shang-react-du-shu-hui-ban)
 * [2016簡報](https://speakerdeck.com/patw0929/shi-yong-jest-jin-xing-front-end-unit-test)
 * [文章](https://blog.patw.me/archives/1310/write-frontend-unit-tests-with-jest/)
 
